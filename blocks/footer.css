@@ -6,6 +6,10 @@
   margin-bottom: 60px;
 }
 
+.footer__copyright {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 880px) {
   .footer {
     max-width: 93%;
