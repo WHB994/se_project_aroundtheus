@@ -63,6 +63,14 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 373px;
+  width: 100%;
+  text-align: center;
+  padding-top: 14px;
+  font-size: 14px;
+  line-height: normal;
+  grid-area: description;
+  margin: 0;
+  max-width: 285px;
 }
 
 .profile__add-button {
@@ -119,12 +127,6 @@
     width: 100%;
   }
 
-  .profile__description {
-    width: 100%;
-    text-align: center;
-    padding-top: 14px;
-  }
-
   .profile__avatar {
     margin-right: 0;
     margin-bottom: 30px;
@@ -143,11 +145,14 @@
   }
 
   .profile__description {
-    font-size: 14px;
-    line-height: normal;
-    grid-area: description;
-    margin: 0;
-    max-width: 285px;
+  width: 100%;
+  text-align: center;
+  padding-top: 14px;
+  font-size: 14px;
+  line-height: normal;
+  grid-area: description;
+  margin: 0;
+  max-width: 285px;
   }
 
   .profile__add-button {
