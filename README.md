@@ -1,3 +1,4 @@
+**project name**
 Project 3: Around The U.S.
 
 Overview  
@@ -8,7 +9,9 @@ Overview
   
 **Intro**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+**Project description** This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+
+**Plan** Improve project for Sprint 4
   
 **Figma**  
   
@@ -24,3 +27,4 @@ Good luck and have fun!
 https://whb994.github.io/se_project_aroundtheus/
 
 **video**
+https://drive.google.com/file/d/1WnXOT9b8hN0RqYfMMzuI8CeD2mgtAtAk/view?usp=drive_link
