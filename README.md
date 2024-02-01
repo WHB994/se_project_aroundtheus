@@ -28,3 +28,8 @@ https://whb994.github.io/se_project_aroundtheus/
 
 **video**
 https://drive.google.com/file/d/1WnXOT9b8hN0RqYfMMzuI8CeD2mgtAtAk/view?usp=drive_link
+
+-Microphone stopped working have a new one ordered and will make a new video when that happens.
+
+-In my video I show that for my sprint 3 project I have a Header at the top, profile section right below that, followed by the cards
+    and the footer. On the cards I use display grid and a list on the card section.
