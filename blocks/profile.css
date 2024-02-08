@@ -31,7 +31,7 @@
   font-weight: 500;
   margin: 0;
   grid-area: title;
-  text-overflow: ellipsis;
+  text-overflow: none;
   white-space: nowrap;
   overflow: hidden;
   max-width: 373px;
