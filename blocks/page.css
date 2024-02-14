@@ -1,23 +1,23 @@
 .page {
   background-color: #000;
+}
+
+.page__content {
+  font-family: "Inter", Arial, sans-serif;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 20px;
 }
 
 .page__section {
   max-width: 880px;
-  width: 100%;
-  position: relative;
   margin: 0 auto;
 }
 
-.page__content {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-@media screen and (max-width: 580px) {
-  .page__section {
-    align-items: center;
+@media screen and (max-width: 620px) {
+  .page__content {
+    padding: 0;
   }
 }
