@@ -47,8 +47,7 @@
       <footer class="footer page__section">
         <p class="footer__content">&copy; 2024 Around the U.S.</p>
       </footer>
-    </div>
-    <!--Edit Profile Modal-->
+    </div>    
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close"></button>
@@ -83,8 +82,7 @@
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
-    </div>
-    <!--Add Card Modal-->
+    </div>    
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
         <button class="modal__close"></button>
@@ -94,7 +92,7 @@
             <input
               id="card-title"
               type="text"
-              name="Title"
+              name="name"
               placeholder="Title"
               class="modal__input modal__input_type_title"
               required
@@ -107,7 +105,7 @@
             <input
               id="card-image-url"
               type="url"
-              name="URL"
+              name="link"
               placeholder="Image URL"
               class="modal__input modal__input_type_url"
               required
@@ -117,14 +115,12 @@
           <button
             class="modal__button modal__button_disabled"
             type="submit"
-            disabled
-          >
+            disabled>
             Save
           </button>
         </form>
       </div>
-    </div>
-    <!--Image Preview Modal-->
+    </div>    
     <div class="modal" id="image-preview-modal">
       <div class="preview-image-modal__container">
         <button class="modal__close modal__close_type_preview"></button>
@@ -132,7 +128,6 @@
         <p class="preview-image__description"></p>
       </div>
     </div>
-
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="" alt="" />
