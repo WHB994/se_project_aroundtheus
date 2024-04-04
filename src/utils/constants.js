@@ -51,3 +51,11 @@ export const initialCards = [
     inputErrorClass: "modal__input_type_error",
     errorClass: "modal__error_visible",
   }
+  
+  export const cardselectors = {
+    cardDelete: ".card__delete-button",
+    cardLike: ".card__like-button",
+    cardLikeToggle: "card__like-button_active",
+    cardTitle: ".card__title",
+    cardImage: ".card__image",
+  }

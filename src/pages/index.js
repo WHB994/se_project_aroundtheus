@@ -73,7 +73,7 @@ updateProfileButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   profileHeadingInput.value = userData.userName;
   profileDescriptionInput.value = userData.userDescription;
-  editProfileValidator.resetValidation(); //editProfileFormValidator might need to change back Not sure what my mistake is//
+  editProfileFormValidator.resetValidation(); //editProfileFormValidator might need to change back Not sure what my mistake is//
   updateProfilePopup.open();
 });
 
