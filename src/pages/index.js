@@ -13,7 +13,7 @@ import '../pages/index.css';
 const addCardAddButton = document.querySelector(selectors.cardAddButton);
 const updateProfileButton = document.querySelector(selectors.profileEditButton);
 const cardFormElement = document.querySelector(selectors.cardPopup);
-const profileFormElement = document.querySelector(selectors.profilePopup);
+const profileFormElement = document.querySelector(selectors.profilePopup); //Isn't modal and form the same? What am I needing to fix? I don't see any errors.
 const profileHeadingInput = profileFormElement.querySelector(selectors.profileName);
 const profileDescriptionInput = profileFormElement.querySelector(selectors.profileDescription);
 const newImagePopup = new PopupWithImage(selectors.cardImagePopup);
