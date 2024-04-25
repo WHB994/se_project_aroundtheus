@@ -43,6 +43,18 @@
   height: 330px;
 }
 
+.delete-modal__container {
+  height: 181px;
+}
+
+.delete-modal__container .modal__heading {
+  margin: 0;
+}
+
+.avatar-modal__container {
+  height: 272px;
+}
+
 .modal__close {
   border: none;
   position: absolute;
