@@ -4,7 +4,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import PopupConfirm from"../components/PopupConfirm.js";
+import PopupConfirm from "../components/PopupConfirm.js";
 import UserInfo from "../components/UserInfo.js";
 import { selectors, formValidationConfig } from "../utils/constants.js";
 import "../pages/index.css";
@@ -32,6 +32,7 @@ handleValidation(editProfileFormValidator);
 handleValidation(cardFormValidator);
 handleValidation(updateAvatarFormValidator);
 
+//PROJECT 9
 const api = new Api({
   baseURL: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -40,12 +41,14 @@ const api = new Api({
   },
 });
 
+//USER INFO
 const userInfo = new UserInfo({
-nameSelector: selectors.profileHeadingElement,
+  nameSelector: selectors.profileHeadingElement,
   descriptionSelector: selectors.profileDescriptionElement,
   avatarSelector: selectors.avatarImageElement,
 });
 
+//INITIAL CARDS
 let cardSection;
 api
   .initialPageLoad()
@@ -62,6 +65,7 @@ api
     );
     cardSection.renderItems();
     userInfo.setUserInfo(user);
+    userInfo.setUserAvatar(user.avatar);
   })
   .catch((err) => {
     console.error(`Error: ${err}`);
@@ -74,12 +78,14 @@ const updateProfilePopup = new PopupWithForm(
 );
 updateProfilePopup.setEventListeners();
 
+//NEW CARD
 const newCardPopup = new PopupWithForm(
   selectors.cardPopup,
   handleAddCardFormSubmit
 );
 newCardPopup.setEventListeners();
 
+//let card;
 function renderCard(item) {
   const card = new Card(
     item,
@@ -91,6 +97,7 @@ function renderCard(item) {
   return card.generateCard();
 }
 
+//DELETE CARD
 const deletePopup = new PopupConfirm(
   selectors.deletePopup,
   handleDeleteCard
@@ -116,7 +123,7 @@ updateProfileButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   profileHeadingInput.value = userData.name;
   profileDescriptionInput.value = userData.about;
-  editProfileFormValidator.resetValidation(); 
+  editProfileFormValidator.resetValidation();
   updateProfilePopup.open();
 });
 
@@ -124,23 +131,29 @@ updateAvatarButton.addEventListener("click", () => {
   avatarPopup.open();
 });
 
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                 Functions                                 ||
+// ! ||--------------------------------------------------------------------------------||
 function handleValidation(form) {
   form.enableValidation();
 }
 
-
-function handleAddCardFormSubmit(data) {
-  this.showButtonProgress(true);
+function handleAddCardFormSubmit(cardData) {
+  newCardPopup.showButtonProgress(true);
   api
-    .addNewCard(data.name, data.link)
+    .addNewCard(cardData.name, cardData.link)
     .then((res) => {
       const card = renderCard(res);
       cardSection.addItem(card);
+      newCardPopup.reset();
+      newCardPopup.close();
     })
     .catch((err) => {
       console.error(`Error: ${err}`);
+    })
+    .finally(() => {
+      newCardPopup.showButtonProgress(false);
     });
-    this.showButtonProgress(false);
 }
 
 function handleImageClick(name, link) {
@@ -148,38 +161,46 @@ function handleImageClick(name, link) {
 }
 
 function handleProfileSubmit(userData) {
-  this.showButtonProgress(true);
+  updateProfilePopup.showButtonProgress(true);
   api
     .updateUserInfo(userData.name, userData.about)
     .then((user) => {
       userInfo.setUserInfo(user);
+      updateProfilePopup.reset();
+      updateProfilePopup.close();
     })
     .catch((err) => {
       console.error(`Error: ${err}`);
+    })
+    .finally(() => {
+      updateProfilePopup.showButtonProgress(false);
     });
-    this.showButtonProgress(false);
 }
 
-function handleDeleteCard(_id) {
-}
-deletePopup.open();
+function handleDeleteCard(cardData) {
+  deletePopup.open();
   deletePopup.setSubmitAction(() => {
+    deletePopup.showButtonProgress(true);
     api
-    .deleteCard(_id)
+      .deleteCard(cardData._id)
       .then((res) => {
-        this.handleRemoveCard();
+        cardData.handleRemoveCard();
+        deletePopup.close();
       })
       .catch((err) => {
         console.error(`Error: ${err}`);
+      })
+      .finally(() => {
+        deletePopup.showButtonProgress(false);
       });
   });
+}
 
-
-function handleLikeIcon(_id, _isLiked) {
+function handleLikeIcon(cardData) {
   api
-    .setLike(_id, _isLiked)
+    .setLike(cardData._id, cardData._isLiked)
     .then((res) => {
-      this.handleLikeIcon(res.isLiked);
+      cardData.handleLikeIcon(res.isLiked);
     })
     .catch((err) => {
       console.error(`Error: ${err}`);
@@ -187,14 +208,18 @@ function handleLikeIcon(_id, _isLiked) {
 }
 
 function handleEditAvatar(data) {
-  this.showButtonProgress(true);
+  avatarPopup.showButtonProgress(true);
   api
     .updateProfilePicture(data.avatar)
     .then((user) => {
       userInfo.setUserAvatar(user.avatar);
+      avatarPopup.reset();
+      avatarPopup.close();
     })
     .catch((err) => {
       console.error(`Error: ${err}`);
+    })
+    .finally(() => {
+      avatarPopup.showButtonProgress(false);
     });
-    this.showButtonProgress(false);
 }

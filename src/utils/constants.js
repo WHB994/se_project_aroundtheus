@@ -43,13 +43,15 @@ export const initialCards = [
     profileHeadingElement: ".profile__heading",
     profileDescriptionElement: ".profile__description",
     avatarImageElement: ".profile__image",
-   deletePopup: "#delete-modal",
-   avatarPopup: "#avatar-edit-modal",
-   avatarEditButton: "#avatar-profile-edit-button",
-   avatarURL: ".modal__input_type_url",
-   savingButtonText: "Saving...",
-   submitButtonSelector: ".modal__button",
-   saveButtonDefaultText: "Save",
+    deletePopup: "#delete-modal",
+    avatarPopup: "#avatar-edit-modal",
+    avatarEditButton: "#avatar-profile-edit-button",
+    avatarURL: ".modal__input_type_url",
+    savingButtonText: "Saving...",
+    submitButtonSelector: ".modal__button",
+    saveButtonDefaultText: "Save",
+    deletingButtonDefaultText: "Yes",
+    deletingButtonText: "Deleting...",
   }
   
   export const formValidationConfig = {
