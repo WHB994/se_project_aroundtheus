@@ -129,14 +129,19 @@ updateProfileButton.addEventListener("click", () => {
 
 updateAvatarButton.addEventListener("click", () => {
   avatarPopup.open();
-  toggleButtonState.open() //I'm lost on this, could I have an example?
+  updateAvatarFormValidator.toggleButtonState()
+ 
 });
+
+
+
+
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                 Functions                                 ||
 // ! ||--------------------------------------------------------------------------------||
 function handleValidation(form) {
-  form.enableValidation("disable",);
+  form.enableValidation();
 }
 
 function handleAddCardFormSubmit(cardData) {
